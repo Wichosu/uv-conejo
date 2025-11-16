@@ -105,3 +105,10 @@
 .orange {
   background-color: orange;
 }
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 100%;
+    max-height: 200px;
+  }
+}
