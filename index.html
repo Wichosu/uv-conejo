@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa UV El Conejo</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/carousel.css" />
+    <link rel="stylesheet" href="./styles/card.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="./index.html" class="logo">
+        <picture class="logo">
+          <img
+            src="./img/logo_uv.svg"
+            alt="Imagen del logotipo de la UV (Universidad Veracruzana)"
+          />
+        </picture>
+        <span>universidad veracruzana</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./">moodle</a></li>
+        <li><a href="./">servidor de correos</a></li>
+        <li class="dropdown-menu">
+          <button>juegos</button>
+          <div>
+            <a href="./ahorcado.html">ahorcado</a>
+            <a href="./snake.html">snake</a>
+            <a href="./quiz.html">quiz</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Carrousel -->
+    <section class="carousel-container">
+      <picture class="carousel-slide"
+        ><img src="./img/carousel-1.jpeg" alt=""
+      /></picture>
+      <picture class="carousel-slide"
+        ><img src="./img/carousel-2.jpeg" alt=""
+      /></picture>
+      <picture class="carousel-slide"
+        ><img src="./img/carousel-3.jpeg" alt=""
+      /></picture>
+      <picture class="carousel-slide"
+        ><img src="./img/carousel-4.jpeg" alt=""
+      /></picture>
+
+      <button class="carousel-button carousel-button-left"><</button>
+      <button class="carousel-button carousel-button-right">></button>
+
+      <div class="carousel-index-container"></div>
+    </section>
+
+    <!--Introduccion al proyecto-->
+    <section class="introduction">
+      <h1>Proyecto Educativo El Conejo – Universidad Veracruzana</h1>
+      <p>
+        Bienvenido al portal digital de la Casa UV El Conejo. Aquí encontrarás
+        cursos, acceso a correo y actividades educativas creadas para la
+        comunidad.
+      </p>
+    </section>
+
+    <!-- Servicios-->
+    <section class="services">
+      <h2>servicios disponibles</h2>
+      <div class="services-cards">
+        <article class="card">
+          <h3 class="card-title">plataforma <span>de</span> cursos (moodle)</h3>
+          <picture>
+            <img src="./img/logo_moodle.svg" alt="" />
+          </picture>
+          <p>
+            Accede a cursos diseñados especialmente para los estudiantes de la
+            comunidad
+          </p>
+          <a href="./index.html">ir <span>a</span> moodle</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">servidor <span>de</span> correo</h3>
+          <picture>
+            <img src="./img/logo_mail.svg" alt="" />
+          </picture>
+          <p>
+            Servicio de correo local que permite a estudiantes y docentes enviar
+            y recibir mensajes dentro de la red de la Casa UV
+          </p>
+          <a>ir <span>al</span> servidor <span>de</span> correo</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">juegos educativos</h3>
+          <picture>
+            <img src="./img/logo_juegos.svg" alt="" />
+          </picture>
+          <p>
+            Un espacio interactivo donde los estudiantes pueden aprender
+            mediante juegos educativos, retos lógicos y actividades diseñadas
+            para despertar el interés en la tecnología
+          </p>
+          <a href="./ahorcado.html">jugar ahorcado</a>
+          <a href="./snake.html">jugar snake</a>
+          <a href="./quiz.html">jugar quiz</a>
+        </article>
+      </div>
+    </section>
+
+    <!--Contexto -->
+    <section class="context">
+      <h2>contexto</h2>
+      <h3>Acerca de la Comunidad "El Conejo"</h3>
+      <p>
+        La localidad de El Conejo, ubicada en el municipio de Perote, Veracruz,
+        cuenta con aproximadamente 1,230 habitantes. Su clima frío, su identidad
+        agrícola y sus festividades locales como San Isidro Labrador, La
+        Guadalupana y Todos los Santos reflejan la riqueza cultural de la
+        región. Gracias a su cercanía al Cofre de Perote, El Conejo es una
+        comunidad con profundas raíces y tradiciones. Este portal busca ofrecer
+        nuevas oportunidades para niñas, niños y jóvenes, impulsando su
+        aprendizaje y acceso a herramientas tecnológicas.
+      </p>
+      <h3>¿Qué es la Casa UV El Conejo?</h3>
+      <p>
+        La Casa UV El Conejo es un espacio educativo y comunitario creado por la
+        Universidad Veracruzana para promover el aprendizaje, la cultura, la
+        salud y el desarrollo sustentable de la región. Desde 2007, ha sido un
+        punto de encuentro donde estudiantes, docentes e investigadores realizan
+        proyectos y actividades que fortalecen a la comunidad.
+      </p>
+      <h3>Nuestra misión</h3>
+      <p>
+        Somos un grupo de estudiantes de la Facultad de Estadística e
+        Informática, de la carrera en Ingeniería de Ciberseguridad e
+        Infraestructura de Cómputo. Nuestro objetivo es contribuir al desarrollo
+        educativo y tecnológico de los jóvenes de El Conejo mediante
+        herramientas accesibles, seguras y adaptadas a sus necesidades reales. A
+        través de este proyecto buscamos brindar cursos, actividades y recursos
+        que fortalezcan su aprendizaje.
+      </p>
+    </section>
+
+    <!--Footer-->
+    <footer>
+      <picture>
+        <img
+          src="./img/logo_uv.svg"
+          alt="imagen del logo de la universidad veracruzana"
+        />
+      </picture>
+      <div>
+        <p>©️ 2025 universidad veracruzana</p>
+        <p>proyecto el conejo</p>
+        <p>
+          contacto:
+          <a href="mailto:contacto@uv.mx" target="_blank" class="footer-mail"
+            >contacto@uv.mx</a
+          >
+        </p>
+        <p>redes / créditos del proyecto</p>
+      </div>
+    </footer>
+
+    <script>
+      const carouselSlides = document.querySelectorAll('.carousel-slide');
+
+      const carouselIndexContainer = document.querySelector(
+        '.carousel-index-container'
+      );
+
+      const carouselButtonRight = document.querySelector(
+        '.carousel-button-right'
+      );
+      const carouselButtonLeft = document.querySelector(
+        '.carousel-button-left'
+      );
+
+      let currentIndex = 0;
+
+      carouselSlides.forEach((slide, index) => {
+        const indexButton = carouselIndexContainer.appendChild(
+          document.createElement('button')
+        );
+
+        indexButton.classList.add('carousel-index');
+
+        indexButton.addEventListener('click', () => {
+          currentIndex = index;
+          focusSlide(currentIndex);
+
+          document
+            .querySelectorAll('.carousel-index')
+            .forEach((btn) => btn.classList.remove('carousel-index-active'));
+
+          indexButton.classList.add('carousel-index-active');
+        });
+
+        if (index === 0) {
+          indexButton.classList.add('carousel-index-active');
+        }
+      });
+
+      carouselButtonRight.addEventListener('click', () => {
+        if (currentIndex === carouselSlides.length - 1) {
+          currentIndex = 0;
+        } else {
+          currentIndex = currentIndex + 1;
+        }
+
+        focusSlide(currentIndex);
+      });
+
+      carouselButtonLeft.addEventListener('click', () => {
+        if (currentIndex === 0 || currentIndex < 0) {
+          currentIndex = carouselSlides.length - 1;
+        } else {
+          currentIndex = currentIndex - 1;
+        }
+
+        focusSlide(currentIndex);
+      });
+
+      function focusSlide(index) {
+        carouselSlides.forEach((slide, i) => {
+          if (i === index) {
+            slide.style.transform = `translateX(-${i * 100}%)`;
+            slide.style.opacity = '1';
+            slide.classList.add('carousel-slide-active');
+
+            const carouselIndexButtons =
+              document.querySelectorAll('.carousel-index');
+
+            carouselIndexButtons.forEach((btn) => {
+              if (btn.classList.contains('carousel-index-active')) {
+                btn.classList.remove('carousel-index-active');
+              }
+
+              if (Array.from(carouselIndexButtons).indexOf(btn) === index) {
+                btn.classList.add('carousel-index-active');
+              }
+            });
+          } else {
+            slide.style.transform = `translateX(0%)`;
+            slide.style.opacity = '0';
+            slide.classList.remove('carousel-slide-active');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

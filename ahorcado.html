@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ahorcado Bonito con Dibujo</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #6fd6ff, #a17bff);
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 35px;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px #0005;
+      }
+
+      #contenedorJuego {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      #palabra {
+        font-size: 45px;
+        letter-spacing: 10px;
+        margin: 20px 0;
+      }
+
+      #intentos {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 15px;
+      }
+
+      #letras button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #ffffffdd;
+        color: #333;
+        transition: 0.2s;
+      }
+
+      #letras button:hover {
+        background: #fff;
+        transform: scale(1.1);
+      }
+
+      #letras button:disabled {
+        background: #888;
+        color: #444;
+        transform: none;
+      }
+
+      /* Animación al fallar */
+      .shake {
+        animation: shake 0.3s ease-in-out;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        50% {
+          transform: translateX(10px);
+        }
+        75% {
+          transform: translateX(-10px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      #mensajeFinal {
+        font-size: 30px;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      #reiniciar {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 22px;
+        background: #fffa;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .parte {
+        visibility: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="./index.html" class="logo">
+        <picture class="logo">
+          <img
+            src="./img/logo_uv.svg"
+            alt="Imagen del logotipo de la UV (Universidad Veracruzana)"
+          />
+        </picture>
+        <span>universidad veracruzana</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./">moodle</a></li>
+        <li><a href="./">servidor de correos</a></li>
+        <li class="dropdown-menu">
+          <button>juegos</button>
+          <div>
+            <a href="./ahorcado.html">ahorcado</a>
+            <a href="./snake.html">snake</a>
+            <a href="./quiz.html">quiz</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>🎮 Ahorcado con Dibujo</h1>
+    <p>¡Adivina la palabra! Se revelan 2 pistas ✨</p>
+
+    <div id="contenedorJuego">
+      <!-- DIBUJO DEL AHORCADO -->
+      <svg height="300" width="200">
+        <line
+          x1="10"
+          y1="280"
+          x2="190"
+          y2="280"
+          stroke="white"
+          stroke-width="6"
+        />
+
+        <line
+          x1="50"
+          y1="280"
+          x2="50"
+          y2="20"
+          stroke="white"
+          stroke-width="6"
+          class="parte"
+          id="poste"
+        />
+        <line
+          x1="50"
+          y1="20"
+          x2="150"
+          y2="20"
+          stroke="white"
+          stroke-width="6"
+          class="parte"
+          id="techo"
+        />
+        <line
+          x1="150"
+          y1="20"
+          x2="150"
+          y2="60"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="cuerda"
+        />
+
+        <circle
+          cx="150"
+          cy="80"
+          r="20"
+          stroke="white"
+          stroke-width="4"
+          fill="none"
+          class="parte"
+          id="cabeza"
+        />
+        <line
+          x1="150"
+          y1="100"
+          x2="150"
+          y2="160"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="cuerpo"
+        />
+        <line
+          x1="150"
+          y1="120"
+          x2="120"
+          y2="140"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="brazo1"
+        />
+        <line
+          x1="150"
+          y1="120"
+          x2="180"
+          y2="140"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="brazo2"
+        />
+        <line
+          x1="150"
+          y1="160"
+          x2="130"
+          y2="200"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="pierna1"
+        />
+        <line
+          x1="150"
+          y1="160"
+          x2="170"
+          y2="200"
+          stroke="white"
+          stroke-width="4"
+          class="parte"
+          id="pierna2"
+        />
+      </svg>
+
+      <div>
+        <div id="palabra"></div>
+        <div id="intentos"></div>
+        <div id="letras"></div>
+      </div>
+    </div>
+
+    <div id="mensajeFinal"></div>
+    <button id="reiniciar" onclick="location.reload()">
+      Jugar otra vez 🎉
+    </button>
+
+    <script>
+      const palabras = [
+        'conejo',
+        'perote',
+        'veracruz',
+        'mexico',
+        'ciberseguridad',
+        'xalapa',
+        'universidad veracruzana',
+        'luna',
+        'dulce',
+        'sol',
+        'libro',
+        'python',
+        'juego',
+        'escuela',
+      ];
+
+      let partes = [
+        'poste',
+        'techo',
+        'cuerda',
+        'cabeza',
+        'cuerpo',
+        'brazo1',
+        'brazo2',
+        'pierna1',
+        'pierna2',
+      ];
+
+      let palabra = palabras[Math.floor(Math.random() * palabras.length)];
+      let oculto = [];
+      let usadas = [];
+      let errores = 0;
+      const maxErrores = partes.length;
+
+      // --- GENERAR 2 PISTAS SOLO POR POSICIONES ---
+      let indices = [...palabra]
+        .map((_, i) => i)
+        .filter((i) => palabra[i] !== ' '); // evitar elegir el espacio como pista
+
+      indices.sort(() => Math.random() - 0.5);
+
+      let pos1 = indices[0];
+      let pos2 = indices[1];
+
+      let pista1 = palabra[pos1];
+      let pista2 = palabra[pos2];
+
+      // --- CREAR ARRAY OCULTO ---
+      for (let i = 0; i < palabra.length; i++) {
+        if (palabra[i] === ' ') {
+          oculto.push(' '); // mostrar espacio automáticamente
+        } else if (i === pos1 || i === pos2) {
+          oculto.push(palabra[i]); // mostrar pistas
+        } else {
+          oculto.push('_');
+        }
+      }
+
+      function mostrarPalabra() {
+        document.getElementById('palabra').textContent = oculto.join(' ');
+      }
+
+      function mostrarIntentos() {
+        document.getElementById(
+          'intentos'
+        ).textContent = `Errores: ${errores} / ${maxErrores}`;
+      }
+
+      function crearBotones() {
+        const contenedor = document.getElementById('letras');
+        const alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+
+        for (let letra of alfabeto) {
+          let boton = document.createElement('button');
+          boton.textContent = letra;
+          boton.onclick = () => probar(letra.toLowerCase());
+          contenedor.appendChild(boton);
+        }
+      }
+
+      function dibujarParte() {
+        document.getElementById(partes[errores - 1]).style.visibility =
+          'visible';
+      }
+
+      function probar(letra) {
+        if (usadas.includes(letra)) return;
+        usadas.push(letra);
+
+        let correcto = false;
+
+        [...palabra].forEach((l, i) => {
+          if (l === letra) {
+            oculto[i] = letra;
+            correcto = true;
+          }
+        });
+
+        if (!correcto) {
+          errores++;
+          dibujarParte();
+          document.body.classList.add('shake');
+          setTimeout(() => document.body.classList.remove('shake'), 300);
+        }
+
+        mostrarPalabra();
+        mostrarIntentos();
+
+        if (!oculto.includes('_')) finalizar(true);
+        else if (errores >= maxErrores) finalizar(false);
+      }
+
+      function finalizar(ganaste) {
+        document
+          .querySelectorAll('#letras button')
+          .forEach((b) => (b.disabled = true));
+
+        document.getElementById('mensajeFinal').textContent = ganaste
+          ? `🏆 ¡Ganaste! La palabra era: ${palabra}`
+          : `💀 Perdiste. La palabra era: ${palabra}`;
+
+        document.getElementById('reiniciar').style.display = 'block';
+      }
+
+      mostrarPalabra();
+      mostrarIntentos();
+      crearBotones();
+    </script>
+  </body>
+</html>

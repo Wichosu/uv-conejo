@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snake Game</title>
+    <style>
+      body {
+        background: #111;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        background: #000;
+        border: 2px solid #0f0;
+        margin-top: 10px;
+      }
+      button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #0f0;
+        color: #000;
+        font-weight: bold;
+      }
+      #gameOverText {
+        margin-top: 15px;
+        font-size: 22px;
+        color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="./index.html" class="logo">
+        <picture class="logo">
+          <img
+            src="./img/logo_uv.svg"
+            alt="Imagen del logotipo de la UV (Universidad Veracruzana)"
+          />
+        </picture>
+        <span>universidad veracruzana</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./">moodle</a></li>
+        <li><a href="./">servidor de correos</a></li>
+        <li class="dropdown-menu">
+          <button>juegos</button>
+          <div>
+            <a href="./ahorcado.html">ahorcado</a>
+            <a href="./snake.html">snake</a>
+            <a href="./quiz.html">quiz</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>Snake Game</h1>
+
+      <div>
+        <button id="pauseBtn">Pausar</button>
+        <button id="restartBtn">Reiniciar</button>
+      </div>
+
+      <canvas id="game" width="400" height="400"></canvas>
+      <div id="gameOverText"></div>
+    </div>
+
+    <script>
+      const canvas = document.getElementById('game');
+      const ctx = canvas.getContext('2d');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const restartBtn = document.getElementById('restartBtn');
+      const gameOverText = document.getElementById('gameOverText');
+
+      const tileSize = 20;
+      let snake, dx, dy, food, score, gameRunning, paused;
+
+      function init() {
+        snake = [{ x: 200, y: 200 }];
+        dx = tileSize;
+        dy = 0;
+        food = spawnFood();
+        score = 0;
+        paused = false;
+        gameRunning = true;
+        gameOverText.style.display = 'none';
+        update();
+      }
+
+      document.addEventListener('keydown', changeDirection);
+
+      pauseBtn.addEventListener('click', () => {
+        paused = !paused;
+        pauseBtn.textContent = paused ? 'Reanudar' : 'Pausar';
+      });
+
+      restartBtn.addEventListener('click', () => {
+        init();
+      });
+
+      function changeDirection(e) {
+        if (e.key === 'ArrowUp' && dy === 0) {
+          dx = 0;
+          dy = -tileSize;
+        } else if (e.key === 'ArrowDown' && dy === 0) {
+          dx = 0;
+          dy = tileSize;
+        } else if (e.key === 'ArrowLeft' && dx === 0) {
+          dx = -tileSize;
+          dy = 0;
+        } else if (e.key === 'ArrowRight' && dx === 0) {
+          dx = tileSize;
+          dy = 0;
+        }
+      }
+
+      function spawnFood() {
+        return {
+          x: Math.floor(Math.random() * (canvas.width / tileSize)) * tileSize,
+          y: Math.floor(Math.random() * (canvas.height / tileSize)) * tileSize,
+        };
+      }
+
+      function update() {
+        if (!gameRunning) return;
+        if (!paused) {
+          const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+          // Colisiones con paredes
+          if (
+            head.x < 0 ||
+            head.x >= canvas.width ||
+            head.y < 0 ||
+            head.y >= canvas.height
+          ) {
+            return gameOver();
+          }
+
+          // Colisiones consigo mismo
+          for (let part of snake) {
+            if (head.x === part.x && head.y === part.y) {
+              return gameOver();
+            }
+          }
+
+          snake.unshift(head);
+
+          // Comer comida
+          if (head.x === food.x && head.y === food.y) {
+            score++;
+            food = spawnFood();
+          } else {
+            snake.pop();
+          }
+
+          draw();
+        }
+
+        setTimeout(update, 100);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // comida
+        ctx.fillStyle = 'red';
+        ctx.fillRect(food.x, food.y, tileSize, tileSize);
+
+        // snake
+        ctx.fillStyle = 'lime';
+        for (let part of snake) {
+          ctx.fillRect(part.x, part.y, tileSize, tileSize);
+        }
+      }
+
+      function gameOver() {
+        gameRunning = false;
+        gameOverText.textContent = 'GAME OVER — Puntaje: ' + score;
+        gameOverText.style.display = 'block';
+      }
+
+      init();
+    </script>
+  </body>
+</html>

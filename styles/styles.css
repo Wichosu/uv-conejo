@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px hsl(0deg 0 0 / 0.075), 0 2px 2px hsl(0deg 0 0 / 0.075),
+    0 4px 4px hsl(0deg 0 0 / 0.075), 0 8px 8px hsl(0deg 0 0 / 0.075);
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.logo picture {
+  display: block;
+  width: 50px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo span {
+  color: black;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  list-style: none;
+}
+
+.nav-links a {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu button {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #374151;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.dropdown-menu button:hover {
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.dropdown-menu div {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 30;
+  box-shadow: 0 1px 1px hsl(0deg 0 0 / 0.075), 0 2px 2px hsl(0deg 0 0 / 0.075),
+    0 4px 4px hsl(0deg 0 0 / 0.075), 0 8px 8px hsl(0deg 0 0 / 0.075);
+}
+
+.dropdown-menu:hover div {
+  display: block;
+}
+
+.dropdown-menu button:focus + div {
+  display: block;
+}
+
+.dropdown-menu div a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.dropdown-menu div a:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* .nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+} */
+
+/* Introduction styles*/
+.introduction {
+  background-color: oklch(97% 0.014 254.604);
+  padding: 30px 0;
+}
+
+.introduction h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.introduction p {
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Services styles */
+.services {
+  padding: 40px 0;
+}
+
+.services-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.services h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2.25rem;
+  margin-bottom: 40px;
+}
+
+/* Context styles */
+.context {
+  padding: 40px 0;
+  background-color: oklch(97% 0.014 254.604);
+}
+
+.context h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+}
+
+.context h3 {
+  margin: 0 auto;
+  max-width: 60%;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.context p {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  max-width: 60%;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Footer styles */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: oklch(97% 0.001 106.424);
+  padding: 20px 0;
+}
+
+footer picture {
+  display: block;
+  max-width: 100px;
+}
+
+footer picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+footer div p {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  padding: 5px 0;
+}
+
+.footer-mail {
+  text-transform: lowercase;
+  color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem 3%;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+}

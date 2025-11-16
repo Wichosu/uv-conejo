@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Preguntas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: #fff;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: #2c2c2c;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 12px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
+      .option {
+        background: #3d3d3d;
+        color: #fff;
+      }
+      .correct {
+        background: #2e7d32 !important;
+      }
+      .wrong {
+        background: #c62828 !important;
+      }
+      #timer {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #ffcc00;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="./index.html" class="logo">
+        <picture class="logo">
+          <img
+            src="./img/logo_uv.svg"
+            alt="Imagen del logotipo de la UV (Universidad Veracruzana)"
+          />
+        </picture>
+        <span>universidad veracruzana</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./">moodle</a></li>
+        <li><a href="./">servidor de correos</a></li>
+        <li class="dropdown-menu">
+          <button>juegos</button>
+          <div>
+            <a href="./ahorcado.html">ahorcado</a>
+            <a href="./snake.html">snake</a>
+            <a href="./quiz.html">quiz</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h2>Juego de Preguntas</h2>
+      <div id="timer">Tiempo: 10</div>
+      <div id="question"></div>
+      <div id="options"></div>
+      <button
+        id="nextBtn"
+        style="display: none; background: #1976d2; color: #fff"
+      >
+        Siguiente
+      </button>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          q: '¿Cuál es el planeta más grande del sistema solar?',
+          options: ['Tierra', 'Júpiter', 'Marte', 'Saturno'],
+          answer: 1,
+        },
+
+        {
+          q: '¿Cuántos huesos tiene el cuerpo humano adulto?',
+          options: ['106', '206', '180', '300'],
+          answer: 1,
+        },
+
+        {
+          q: '¿Cuál es el océano más grande del mundo?',
+          options: ['Atlántico', 'Pacífico', 'Índico', 'Ártico'],
+          answer: 1,
+        },
+        {
+          q: '¿En qué país se inventó la pizza moderna?',
+          options: ['Francia', 'Italia', 'España', 'Grecia'],
+          answer: 1,
+        },
+
+        {
+          q: '¿Cuál es el país más grande del mundo?',
+          options: ['China', 'India', 'Japón', 'Rusia'],
+          answer: 3,
+        },
+        {
+          q: '¿Cuáles son los cinco tipos de sabores primarios?',
+          options: [
+            'Salado, dulce, seco, ácido y umami',
+            'Dulce, amargo, ácido, salado y umami',
+            'Picante, dulce, amargo, ácido y salado',
+            'Dulce, ácido, picante, salado y umami',
+          ],
+          answer: 1,
+        },
+        {
+          q: '¿Cuál es el lugar más frío de la Tierra?',
+          options: ['Siberia', 'Groenlandia', 'La Antártida', 'Islandia'],
+          answer: 2,
+        },
+        {
+          q: '¿Cuál es el color que repesenta la esperanza?',
+          options: ['Verde', 'Bermellón', 'Blanco', 'Azul'],
+          answer: 0,
+        },
+        {
+          q: '¿En qué país se encuentra el famoso monumento Taj Mahal?',
+          options: ['Brasil', 'Rusia', 'China', 'India'],
+          answer: 3,
+        },
+        {
+          q: '¿Cuál es el único mamífero capaz de volar?',
+          options: ['Wombat', 'Capibara', 'Murciélago', 'Búho'],
+          answer: 2,
+        },
+        {
+          q: '¿Quién escribió La Odisea?',
+          options: ['Sófocles', 'Homero', 'Virgilio', 'Heródoto'],
+          answer: 1,
+        },
+        {
+          q: '¿Cómo se llama la capital de Mongolia?',
+          options: ['Taskent', 'Ulan Bator', 'Astana', 'Biskek'],
+          answer: 1,
+        },
+        {
+          q: '¿Cuál es el río más largo del mundo?',
+          options: ['Nilo', 'Yangtsé', 'Amazonas', 'Misisipi'],
+          answer: 2,
+        },
+        {
+          q: '¿De dónde se originan los juegos olímpicos?',
+          options: ['Roma', 'Grecia', 'Egipto', 'China'],
+          answer: 1,
+        },
+        {
+          q: '¿Qué es más pequeño, un átomo o una molécula?',
+          options: ['Átomo', 'Molécula'],
+          answer: 0,
+        },
+        {
+          q: '¿Cuánto vale el número pi?',
+          options: ['3.1416', '3.1411', '3.1316', '3.1516'],
+          answer: 0,
+        },
+        {
+          q: 'Si 50 es el 100%, ¿cuánto es el 90%?',
+          options: ['40', '90', '45', '30'],
+          answer: 2,
+        },
+        {
+          q: '¿Cuántos años tiene un lustro?',
+          options: ['10', '5', '3', '2'],
+          answer: 1,
+        },
+        {
+          q: '¿Cómo se les llama a los anímales que comen carne?',
+          options: ['Carnívoro', 'Herbívoro', 'Tacobívoro', 'Enchiladabívoro'],
+          answer: 0,
+        },
+        {
+          q: '¿Quién pintó “La última cena”?',
+          options: ['Miguel Ángel', 'Leonardo da Vinci', 'Rafael', 'Donatello'],
+          answer: 1,
+        },
+      ];
+
+      let index = 0;
+      let timer;
+      let timeLeft = 15;
+
+      function startTimer() {
+        timeLeft = 15;
+        document.getElementById('timer').textContent = `Tiempo: ${timeLeft}`;
+        timer = setInterval(() => {
+          timeLeft--;
+          document.getElementById('timer').textContent = `Tiempo: ${timeLeft}`;
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            lockOptions();
+            document.getElementById('nextBtn').style.display = 'block';
+          }
+        }, 1000);
+      }
+
+      function loadQuestion() {
+        clearInterval(timer);
+        startTimer();
+
+        const q = questions[index];
+        document.getElementById('question').innerHTML = `<h3>${q.q}</h3>`;
+
+        const optionsDiv = document.getElementById('options');
+        optionsDiv.innerHTML = '';
+
+        q.options.forEach((opt, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'option';
+          btn.textContent = opt;
+          btn.onclick = () => selectOption(btn, i);
+          optionsDiv.appendChild(btn);
+        });
+
+        document.getElementById('nextBtn').style.display = 'none';
+      }
+
+      function selectOption(btn, i) {
+        clearInterval(timer);
+        const q = questions[index];
+        const buttons = document.querySelectorAll('.option');
+
+        buttons.forEach((b) => (b.disabled = true));
+
+        if (i === q.answer) {
+          btn.classList.add('correct');
+        } else {
+          btn.classList.add('wrong');
+          buttons[q.answer].classList.add('correct');
+        }
+
+        document.getElementById('nextBtn').style.display = 'block';
+      }
+
+      function lockOptions() {
+        const q = questions[index];
+        const buttons = document.querySelectorAll('.option');
+        buttons.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.answer) btn.classList.add('correct');
+        });
+      }
+
+      document.getElementById('nextBtn').onclick = () => {
+        index++;
+        if (index < questions.length) {
+          loadQuestion();
+        } else {
+          document.querySelector('.container').innerHTML =
+            '<h2>Juego terminado</h2><p>¡Gracias por jugar!</p>';
+        }
+      };
+
+      loadQuestion();
+    </script>
+  </body>
+</html>
