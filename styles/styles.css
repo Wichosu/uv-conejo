@@ -268,7 +268,12 @@ footer div p {
     line-height: normal;
   }
 
+  .introduction h1 {
+    font-size: 2rem;
+  }
+
   .introduction p {
+    font-size: 1.25rem;
     text-align: justify;
   }
 }
