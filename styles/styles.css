@@ -273,6 +273,15 @@ footer div p {
     gap: 10px;
     margin-top: 20px;
   }
+
+  .footer-picture-container {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .footer-picture-container-text {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 480px) {
