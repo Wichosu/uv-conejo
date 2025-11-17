@@ -70,25 +70,52 @@ body {
   color: #2563eb;
 }
 
+.nav-links a:focus {
+  color: #2563eb;
+}
+
 .dropdown-menu {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-menu-button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
   padding: 10px 20px;
   font-size: 1.5rem;
+  font-family: inherit;
   text-decoration: none;
   color: #374151;
   background-color: transparent;
   border: none;
   font-weight: 500;
   text-transform: capitalize;
+  transition: color 200ms ease-in-out;
 }
 
 .dropdown-menu-button:hover {
   color: #2563eb;
   cursor: pointer;
+}
+
+.dropdown-menu-button:focus {
+  color: #2563eb;
+}
+
+.dropdown-menu img {
+  width: 100%;
+  height: 100%;
+  max-width: 25px;
+  transition: transform 200ms ease-in-out;
+}
+
+.dropdown-menu-button:hover img {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu:hover img {
+  transform: rotate(180deg);
 }
 
 .dropdown-menu div {
