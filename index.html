@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="./styles/carousel.css" />
     <link rel="stylesheet" href="./styles/card.css" />
+    <link rel="stylesheet" href="./styles/cardContext.css" />
     <link rel="icon" href="./img/logo_uv.svg" />
   </head>
   <body>
@@ -69,6 +70,16 @@
 
         <div class="carousel-index-container"></div>
       </div>
+      <div class="carousel-quote">
+        <blockquote>
+          "La educación no cambia el mundo, cambia a las personas que van a
+          cambiar el mundo"
+          <p>-<cite>Paulo Freire</cite></p>
+        </blockquote>
+        <picture>
+          <img src="./img/paulo.jpeg" alt="Imagen de Paulo Freire" />
+        </picture>
+      </div>
     </section>
 
     <!--Introduccion al proyecto-->
@@ -88,7 +99,7 @@
         <article class="card">
           <h3 class="card-title">plataforma <span>de</span> cursos (moodle)</h3>
           <picture>
-            <img src="./img/logo_moodle.svg" alt="" />
+            <img src="./img/moodle.png" alt="Logo de moodle" />
           </picture>
           <p>
             Accede a cursos diseñados especialmente para los estudiantes de la
@@ -99,7 +110,7 @@
         <article class="card">
           <h3 class="card-title">servidor <span>de</span> correo</h3>
           <picture>
-            <img src="./img/logo_mail.svg" alt="" />
+            <img src="./img/correo.png" alt="Imagen de un correo electronico" />
           </picture>
           <p>
             Servicio de correo local que permite a estudiantes y docentes enviar
@@ -112,7 +123,10 @@
         <article class="card">
           <h3 class="card-title">juegos educativos</h3>
           <picture>
-            <img src="./img/logo_juegos.svg" alt="" />
+            <img
+              src="./img/control.png"
+              alt="Imagen de un mando de videojuegos"
+            />
           </picture>
           <p>
             Un espacio interactivo donde los estudiantes pueden aprender
@@ -128,45 +142,84 @@
 
     <!--Contexto -->
     <section class="context">
-      <h3>Acerca de la Comunidad "El Conejo"</h3>
-      <p>
-        La localidad de El Conejo, ubicada en el municipio de Perote, Veracruz,
-        cuenta con aproximadamente 1,230 habitantes. Su clima frío, su identidad
-        agrícola y sus festividades locales como San Isidro Labrador, La
-        Guadalupana y Todos los Santos reflejan la riqueza cultural de la
-        región. Gracias a su cercanía al Cofre de Perote, El Conejo es una
-        comunidad con profundas raíces y tradiciones. Este portal busca ofrecer
-        nuevas oportunidades para niñas, niños y jóvenes, impulsando su
-        aprendizaje y acceso a herramientas tecnológicas.
-      </p>
-      <h3>¿Qué es la Casa UV El Conejo?</h3>
-      <p>
-        La Casa UV El Conejo es un espacio educativo y comunitario creado por la
-        Universidad Veracruzana para promover el aprendizaje, la cultura, la
-        salud y el desarrollo sustentable de la región. Desde 2007, ha sido un
-        punto de encuentro donde estudiantes, docentes e investigadores realizan
-        proyectos y actividades que fortalecen a la comunidad.
-      </p>
-      <h3>Nuestra misión</h3>
-      <p>
-        Somos un grupo de estudiantes de la Facultad de Estadística e
-        Informática, de la carrera en Ingeniería de Ciberseguridad e
-        Infraestructura de Cómputo. Nuestro objetivo es contribuir al desarrollo
-        educativo y tecnológico de los jóvenes de El Conejo mediante
-        herramientas accesibles, seguras y adaptadas a sus necesidades reales. A
-        través de este proyecto buscamos brindar cursos, actividades y recursos
-        que fortalezcan su aprendizaje.
-      </p>
+      <article class="card-context">
+        <picture>
+          <img src="./img/paisaje.png" alt="" />
+        </picture>
+        <div>
+          <h2>Acerca de la Comunidad "El Conejo"</h2>
+          <p>
+            La localidad de El Conejo, ubicada en el municipio de Perote,
+            Veracruz, cuenta con aproximadamente 1,230 habitantes. Su clima
+            frío, su identidad agrícola y sus festividades locales como San
+            Isidro Labrador, La Guadalupana y Todos los Santos reflejan la
+            riqueza cultural de la región. Gracias a su cercanía al Cofre de
+            Perote, El Conejo es una comunidad con profundas raíces y
+            tradiciones. Este portal busca ofrecer nuevas oportunidades para
+            niñas, niños y jóvenes, impulsando su aprendizaje y acceso a
+            herramientas tecnológicas.
+          </p>
+        </div>
+      </article>
+      <article class="card-context">
+        <picture>
+          <img src="./img/corazon.png" alt="" />
+        </picture>
+        <div>
+          <h2>¿Qué es la Casa UV El Conejo?</h2>
+          <p>
+            La Casa UV El Conejo es un espacio educativo y comunitario creado
+            por la Universidad Veracruzana para promover el aprendizaje, la
+            cultura, la salud y el desarrollo sustentable de la región. Desde
+            2007, ha sido un punto de encuentro donde estudiantes, docentes e
+            investigadores realizan proyectos y actividades que fortalecen a la
+            comunidad.
+          </p>
+        </div>
+      </article>
+      <article class="card-context">
+        <picture>
+          <img src="./img/gorro.png" alt="" />
+        </picture>
+        <div>
+          <h2>Nuestra misión</h2>
+          <p>
+            Somos un grupo de estudiantes de la Facultad de Estadística e
+            Informática, de la carrera en Ingeniería de Ciberseguridad e
+            Infraestructura de Cómputo. Nuestro objetivo es contribuir al
+            desarrollo educativo y tecnológico de los jóvenes de El Conejo
+            mediante herramientas accesibles, seguras y adaptadas a sus
+            necesidades reales. A través de este proyecto buscamos brindar
+            cursos, actividades y recursos que fortalezcan su aprendizaje.
+          </p>
+        </div>
+      </article>
     </section>
 
     <!--Footer-->
     <footer>
-      <picture>
-        <img
-          src="./img/logo_uv.svg"
-          alt="imagen del logo de la universidad veracruzana"
-        />
-      </picture>
+      <div class="footer-picture-container">
+        <picture>
+          <img
+            src="./img/facultad.jpeg"
+            alt="imagen del logo de la facultad de Estadística e Informática"
+          />
+        </picture>
+        <picture>
+          <img
+            src="./img/ciberseguridad.png"
+            alt="imagen del logo de candado emitiendo ondas dentro de un escudo azul"
+          />
+        </picture>
+        <div class="footer-picture-container-text">
+          <p>
+            Licenciatura en Ingeniería de Ciberseguridad e Infraestructura de
+            Cómputo
+          </p>
+          <p>Casa UV "El Conejo", Municipio de Perote, Ver.</p>
+        </div>
+      </div>
+
       <div>
         <p>©️ 2025 universidad veracruzana</p>
         <p>proyecto el conejo</p>
@@ -176,7 +229,6 @@
             >contacto@uv.mx</a
           >
         </p>
-        <p>redes / créditos del proyecto</p>
       </div>
     </footer>
 

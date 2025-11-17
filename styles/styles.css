@@ -200,15 +200,13 @@ body {
 
 /* Context styles */
 .context {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0 auto;
   padding: 40px 0;
   background-color: oklch(97% 0.014 254.604);
-}
-
-.context h2 {
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 2.25rem;
-  margin-bottom: 20px;
 }
 
 .context h3 {
@@ -216,15 +214,6 @@ body {
   max-width: 60%;
   font-size: 2rem;
   margin-bottom: 20px;
-}
-
-.context p {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  max-width: 60%;
-  line-height: 1.5;
-  text-align: justify;
 }
 
 /* Footer styles */
@@ -237,15 +226,34 @@ footer {
   padding: 20px 0;
 }
 
-footer picture {
+.footer-picture-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-picture-container picture {
   display: block;
+  width: 100%;
+  min-width: 100px;
   max-width: 100px;
 }
 
-footer picture img {
+.footer-picture-container picture img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.footer-picture-container-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.footer-picture-container-text p {
+  padding: 0;
 }
 
 footer div p {
@@ -297,19 +305,6 @@ footer div p {
   .nav-links a {
     font-size: 1.25rem;
     padding: 5px 10px;
-  }
-
-  .context h3 {
-    text-align: center;
-    max-width: 80%;
-    font-size: 1.75rem;
-  }
-
-  .context p {
-    max-width: 80%;
-    font-size: 1.25rem;
-    text-align: justify;
-    line-height: normal;
   }
 
   .introduction {
