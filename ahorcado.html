@@ -5,6 +5,7 @@
     <title>Ahorcado Bonito con Dibujo</title>
     <style>
       body {
+        margin: 0;
         font-family: 'Segoe UI', sans-serif;
         background: linear-gradient(135deg, #6fd6ff, #a17bff);
         color: white;
@@ -123,7 +124,13 @@
         <li><a href="./">moodle</a></li>
         <li><a href="./">servidor de correos</a></li>
         <li class="dropdown-menu">
-          <button>juegos</button>
+          <button class="dropdown-menu-button">
+            juegos
+            <img
+              src="./img/chevron-down.svg"
+              alt="Flecha apuntando hacia abajo"
+            />
+          </button>
           <div>
             <a href="./ahorcado.html">ahorcado</a>
             <a href="./snake.html">snake</a>
