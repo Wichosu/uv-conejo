@@ -312,8 +312,13 @@ footer div p {
     line-height: normal;
   }
 
+  .introduction {
+    padding: 20px;
+  }
+
   .introduction h1 {
     font-size: 2rem;
+    margin-top: 10px;
   }
 
   .introduction p {
