@@ -75,7 +75,7 @@ body {
   display: inline-block;
 }
 
-.dropdown-menu button {
+.dropdown-menu-button {
   padding: 10px 20px;
   font-size: 1.5rem;
   text-decoration: none;
@@ -86,7 +86,7 @@ body {
   text-transform: capitalize;
 }
 
-.dropdown-menu button:hover {
+.dropdown-menu-button:hover {
   color: #2563eb;
   cursor: pointer;
 }
@@ -104,7 +104,7 @@ body {
   display: block;
 }
 
-.dropdown-menu button:focus + div {
+.dropdown-menu-button:focus + div {
   display: block;
 }
 
@@ -246,14 +246,30 @@ footer div p {
   }
 
   .logo {
-    font-size: 1.5rem;
+    margin: 0 auto;
     text-align: center;
   }
 
+  .logo span {
+    font-size: 1.5rem;
+  }
+
+  .dropdown-menu-button {
+    font-size: 1.25rem;
+    padding: 5px 10px;
+  }
+
   .nav-links {
-    gap: 1rem;
-    font-size: 0.9rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    margin: 0 auto;
+  }
+
+  .nav-links a {
+    font-size: 1.25rem;
+    padding: 5px 10px;
   }
 
   .context h3 {
